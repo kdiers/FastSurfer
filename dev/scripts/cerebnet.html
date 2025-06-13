@@ -7,7 +7,7 @@
 
     <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
         <title>CerebNet: run_prediction.py - FastSurfer</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -203,13 +203,15 @@
   <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview/index.html">User Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of User Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../overview/intro.html">Introduction to FastSurfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/QUICKSTART.html">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/INSTALL.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/EXAMPLES.html">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/FLAGS.html">Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/FLAGS.html">FastSurfer Flags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/OUTPUT_FILES.html">Output files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/docker.html">Docker Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/singularity.html">Singularity Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/EDITING.html">Manual Edits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/LONG.html">Longitudinal Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/SECURITY.html">Security Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview/CONTRIBUTING.html">Contributing to FastSurfer</a></li>
@@ -217,6 +219,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Scripts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="long_fastsurfer.html">LONG: long_fastsurfer.sh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BATCH.html">BATCH: brun_fastsurfer.sh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SLURM.html">SLURM: srun_fastsurfer.sh</a></li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="advanced.html">Advanced scripts</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Advanced scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -228,6 +231,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="util.html">FastSurfer Utilities</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of FastSurfer Utilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="fastsurfercnn.download_checkpoints.html">FastSurferCNN: download_checkpoints.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fastsurfercnn.generate_hdf5.html">FastSurferCNN: generate_hdf5.py</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fastsurfercnn.run_model.html">FastSurferCNN: run_model.py</a></li>
 </ul>
@@ -307,7 +311,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/generated/CerebNet.utils.load_config.html">CerebNet.utils.load_config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/generated/CerebNet.utils.lr_scheduler.html">CerebNet.utils.lr_scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/generated/CerebNet.utils.meters.html">CerebNet.utils.meters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/generated/CerebNet.utils.metrics.html">CerebNet.utils.metrics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/generated/CerebNet.utils.misc.html">CerebNet.utils.misc</a></li>
 </ul>
 </li>
@@ -409,7 +412,9 @@ situations, it will be called from <code class="xref py py-obj docutils literal 
                                   <span class="p">[</span><span class="o">--</span><span class="n">viewagg_device</span> <span class="n">VIEWAGG_DEVICE</span><span class="p">]</span>
                                   <span class="p">[</span><span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span><span class="p">]</span>
                                   <span class="p">[</span><span class="o">--</span><span class="n">batch_size</span> <span class="n">BATCH_SIZE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">async_io</span><span class="p">]</span>
-                                  <span class="p">[</span><span class="o">--</span><span class="n">allow_root</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ckpt_ax</span> <span class="n">CKPT_AX</span><span class="p">]</span>
+                                  <span class="p">[</span><span class="o">--</span><span class="n">orientation</span> <span class="p">{</span><span class="n">native</span><span class="p">,</span><span class="n">XXX</span><span class="p">,</span><span class="n">soft</span><span class="o">-</span><span class="n">XXX</span><span class="p">}]</span>
+                                  <span class="p">[</span><span class="o">--</span><span class="n">image_size</span> <span class="n">IMAGE_SIZE</span><span class="p">]</span>
+                                  <span class="p">[</span><span class="o">--</span><span class="n">vox_size</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span><span class="kc">None</span><span class="p">}]</span> <span class="p">[</span><span class="o">--</span><span class="n">ckpt_ax</span> <span class="n">CKPT_AX</span><span class="p">]</span>
                                   <span class="p">[</span><span class="o">--</span><span class="n">ckpt_cor</span> <span class="n">CKPT_COR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ckpt_sag</span> <span class="n">CKPT_SAG</span><span class="p">]</span>
                                   <span class="o">...</span>
 </pre></div>
@@ -497,20 +502,30 @@ situations, it will be called from <code class="xref py py-obj docutils literal 
 <dd><p>Allow asynchronous file operations (default: off). Note, this may impact the order of messages in the log, but speed up the segmentation specifically for slow file systems.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
-<dt><kbd>--allow_root</kbd></dt>
-<dd><p>Allow execution as root user.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<dt><kbd>--orientation</kbd></dt>
+<dd><p>Possible choices: native, soft ras, soft rai, soft rps, soft rpi, soft las, soft lai, soft lps, soft lpi, soft rsa, soft rsp, soft ria, soft rip, soft lsa, soft lsp, soft lia, soft lip, soft ars, soft ari, soft als, soft ali, soft prs, soft pri, soft pls, soft pli, soft asr, soft asl, soft air, soft ail, soft psr, soft psl, soft pir, soft pil, soft sra, soft srp, soft sla, soft slp, soft ira, soft irp, soft ila, soft ilp, soft sar, soft sal, soft spr, soft spl, soft iar, soft ial, soft ipr, soft ipl, ras, rai, rps, rpi, las, lai, lps, lpi, rsa, rsp, ria, rip, lsa, lsp, lia, lip, ars, ari, als, ali, prs, pri, pls, pli, asr, asl, air, ail, psr, psl, pir, pil, sra, srp, sla, slp, ira, irp, ila, ilp, sar, sal, spr, spl, iar, ial, ipr, ipl</p>
+<p>Select the target affine format for output, native: input defined by input image, soft-XXX (e.g. soft-lia): store as XXX, but do not interpolate, XXX (e.g. lia): force XXX, affine is only 0 or +-1. Default: lia (required by the surface pipeline).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">lia</span></code></p>
+</dd>
+<dt><kbd>--image_size</kbd></dt>
+<dd><p>Select how the image should be conformed. A positive integer yields a cube of that size, ‘fov’ yields dimensions, so the field of view stays consistent, ‘auto’ yields a cube of dimensions fully containing the field of view (default).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">auto</span></code></p>
+</dd>
+<dt><kbd>--vox_size</kbd></dt>
+<dd><p>Possible choices: 1.0, None</p>
+<p>Choose the voxelsize to process, CerebNet only supports 1 or ‘none’ to ignore the voxelsize.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 <dt><kbd>--ckpt_ax</kbd></dt>
-<dd><p>axial checkpoint to load</p>
+<dd><p>axial checkpoint to load.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">/home/runner/work/FastSurfer/FastSurfer/src/checkpoints/CerebNet_axial_v1.0.0.pkl</span></code></p>
 </dd>
 <dt><kbd>--ckpt_cor</kbd></dt>
-<dd><p>coronal checkpoint to load</p>
+<dd><p>coronal checkpoint to load.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">/home/runner/work/FastSurfer/FastSurfer/src/checkpoints/CerebNet_coronal_v1.0.0.pkl</span></code></p>
 </dd>
 <dt><kbd>--ckpt_sag</kbd></dt>
-<dd><p>sagittal checkpoint to load</p>
+<dd><p>sagittal checkpoint to load.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">/home/runner/work/FastSurfer/FastSurfer/src/checkpoints/CerebNet_sagittal_v1.0.0.pkl</span></code></p>
 </dd>
 </dl>
