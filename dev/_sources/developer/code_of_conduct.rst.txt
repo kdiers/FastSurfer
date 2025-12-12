@@ -1,7 +1,7 @@
-Singularity Support
--------------------
+Code of Conduct
+---------------
 
-.. include:: ../../Singularity/README.md
+.. include:: ../../CODE_OF_CONDUCT.md
     :parser: fix_links.parser
     :relative-docs: .
     :relative-images:
