@@ -7,14 +7,12 @@ User Guide
     intro
     QUICKSTART.md
     INSTALL.md
+    CONTAINERS.md
     EXAMPLES.md
-    FLAGS.md
     OUTPUT_FILES.md
-    docker
-    singularity
+    modules/index
     EDITING.md
     LONG.md
+    REPRODUCIBILITY.md
     SECURITY.md
-    CODE_OF_CONDUCT.md
-    CONTRIBUTING.md
     license
